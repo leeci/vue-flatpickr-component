@@ -13,6 +13,7 @@ describe('Flatpickr watchers', () => {
         value: null,
         config: {
           onChange: () => {
+            // shh..
           }
         }
       }
@@ -27,7 +28,9 @@ describe('Flatpickr watchers', () => {
     const stub = jest.fn();
     wrapper.vm.$on('on-change', stub);
     wrapper.setProps({value: '2017-10-04'});
+
     expect(stub).toHaveBeenCalled();
+    expect(stub).toHaveBeenCalledTimes(1);
     stub.mockClear();
   });
 
@@ -36,10 +39,11 @@ describe('Flatpickr watchers', () => {
     wrapper.setProps({value: '2017-10-04'});
 
     expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
     spy.mockReset();
   });
 
-  test('update input value in DOM on value change', () => {
+  test('updates input value in DOM on value change', () => {
     wrapper.setProps({value: '2019-10-04'});
     expect(wrapper.vm.$el.value).toEqual('2019-10-04');
   });

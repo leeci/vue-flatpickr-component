@@ -71,10 +71,10 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
       <div class="input-group">
         <flat-pickr
                 v-model="date"
-                placeholder="Select date"
-                :config="config"
+                :config="config"                                
                 :required="true"                
-                input-class="form-control custom-input-class"                
+                class="form-control" 
+                placeholder="Select date"               
                 name="date">
         </flat-pickr>
         <div class="input-group-btn">
@@ -112,7 +112,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
           wrap: true, // set wrap to true when using 'input-group'
           altFormat: 'M	j, Y',
           altInput: true,
-          dateFormat: "Y-m-d",
+          dateFormat: 'Y-m-d',
           locale: Hindi, // locale for this instance only          
         },                
       }
@@ -140,11 +140,6 @@ The component accepts these props:
 | :---             | :---:                              | :---:                | :---             |
 | v-model / value  | String / Date Object / Array / null| `null`               | Set or Get date-picker value (required) |
 | config           | Object                             | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
-| placeholder      | String                             | `''`                 | Set placeholder on input field |
-| input-class      | String / Object                    | `'form-control input'` | Set CSS class on input field |
-| name             | String                             | `'date-time'`        | Set input field name  |
-| required         | Boolean                            | `false`              | Make input field required |
-| id               | String                             | `''`                 | Set input field id  |
 
 ## Install in non-module environments (without webpack)
 * Include required files
@@ -160,10 +155,10 @@ The component accepts these props:
 * Use the component anywhere in your app like this
 ```html
 <main id="app">  
-    <flat-pickr v-model="date"></flat-pickr> 
+    <flat-pickr v-model="date" class="input"></flat-pickr> 
 </main>
 <script>
-  //Initialize as global component
+  // Initialize as global component
   Vue.component('flat-pickr', VueFlatpickr.default);
   
   new Vue({
@@ -186,15 +181,12 @@ yarn install
 ``
 yarn start
 ``
-* This should open the demo page at ``http://localhost:8080`` in your default web browser
+* This should open the demo page at ``http://localhost:8000`` in your default web browser
 
 ### Testing
 * This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
 * Tests can be found in `__test__` folder.
-* Execute tests with this command
-```bash
-yarn test
-```
+* Execute tests with this command `yarn test`
 
 ## Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
